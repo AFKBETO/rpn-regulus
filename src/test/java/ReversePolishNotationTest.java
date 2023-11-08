@@ -51,6 +51,9 @@ public class ReversePolishNotationTest {
         Assert.assertEquals(40.0, evaluateRPN("20 2 *"), 0.0);
     }
 
-
+    @Test
+    public void testMaxOK() throws IllegalArgumentException {
+        Assert.assertEquals(30.0, evaluateRPN("20 2 8 7 30 12 max"), 0.0);
+    }
 
 }

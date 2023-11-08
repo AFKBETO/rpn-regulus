@@ -42,6 +42,13 @@ public class ReversePolishNotation {
                         case "*":
                             stack.push(stack.pop() * stack.pop());
                             break;
+                        case "max":
+                            double max = stack.pop();
+                            while (!stack.isEmpty()) {
+                                max = Math.max(max, stack.pop());
+                            }
+                            stack.push(max);
+                            break;
                         default:
                             throw new IllegalArgumentException("Error: Unknown operator " + token);
                     }
