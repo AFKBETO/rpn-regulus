@@ -18,6 +18,9 @@ public class ReversePolishNotationTest {
         assertTrue(exception.getMessage().contains("Error: expecting two arguments, but got less than two arguments"));
     }
 
-
+    @Test
+    public void testPlusOK() throws IllegalArgumentException {
+        Assert.assertEquals(22.0, evaluateRPN("20 2 +"), 0.0);
+    }
 
 }
