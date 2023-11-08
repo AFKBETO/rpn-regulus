@@ -39,6 +39,9 @@ public class ReversePolishNotation {
                             double second = stack.pop();
                             stack.push(second - first);
                             break;
+                        case "*":
+                            stack.push(stack.pop() * stack.pop());
+                            break;
                         default:
                             throw new IllegalArgumentException("Error: Unknown operator " + token);
                     }

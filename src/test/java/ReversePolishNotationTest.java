@@ -46,5 +46,11 @@ public class ReversePolishNotationTest {
         Assert.assertEquals(18.0, evaluateRPN("20 2 -"), 0.0);
     }
 
+    @Test
+    public void testMultiplicationOK() throws IllegalArgumentException {
+        Assert.assertEquals(40.0, evaluateRPN("20 2 *"), 0.0);
+    }
+
+
 
 }
