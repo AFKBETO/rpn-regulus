@@ -56,4 +56,15 @@ public class ReversePolishNotationTest {
         Assert.assertEquals(30.0, evaluateRPN("20 2 8 7 30 12 max"), 0.0);
     }
 
+    @Test
+    public void testDivOK() throws IllegalArgumentException {
+        Assert.assertEquals(10.0, evaluateRPN("20 2 /"), 0.0);
+    }
+
+    @Test
+    public void testDivFailWith0() throws IllegalArgumentException {
+        Exception exception = Assert.assertThrows(IllegalArgumentException.class, () -> {evaluateRPN("15 0 /");});
+        assertTrue(exception.getMessage().contains("Error: Illegal operation"));
+    }
+
 }

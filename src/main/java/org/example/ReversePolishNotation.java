@@ -49,6 +49,12 @@ public class ReversePolishNotation {
                             }
                             stack.push(max);
                             break;
+                        case "/":
+                            double div = stack.pop();
+                            if (div == 0)
+                                throw new IllegalArgumentException("Error: Illegal operation");
+                            stack.push(stack.pop() / div);
+                            break;
                         default:
                             throw new IllegalArgumentException("Error: Unknown operator " + token);
                     }
