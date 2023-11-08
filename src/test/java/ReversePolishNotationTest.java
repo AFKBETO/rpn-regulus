@@ -1,15 +1,16 @@
-import static org.example.ReversePolishNotation.evaluateRPN;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Assert;
 import org.junit.Test;
+
+import static org.example.ReversePolishNotation.evaluateRPN;
+import static org.junit.Assert.assertTrue;
 
 public class ReversePolishNotationTest {
 
     @Test
     public void testSqrtFail() throws IllegalArgumentException {
-        Exception exception = Assert.assertThrows(IllegalArgumentException.class, () -> {evaluateRPN("sqrt");});
+        Exception exception = Assert.assertThrows(IllegalArgumentException.class, () -> {
+            evaluateRPN("sqrt");
+        });
         assertTrue(exception.getMessage().contains("Error: expecting one argument for sqrt, but got less than one argument"));
     }
 
@@ -20,7 +21,9 @@ public class ReversePolishNotationTest {
 
     @Test
     public void testLessArg() throws IllegalArgumentException {
-        Exception exception = Assert.assertThrows(IllegalArgumentException.class, () -> {evaluateRPN("3 +");});
+        Exception exception = Assert.assertThrows(IllegalArgumentException.class, () -> {
+            evaluateRPN("3 +");
+        });
         assertTrue(exception.getMessage().contains("Error: expecting two arguments, but got less than two arguments"));
     }
 
@@ -31,13 +34,17 @@ public class ReversePolishNotationTest {
 
     @Test
     public void testPlusTooManyValues() throws IllegalArgumentException {
-        Exception exception = Assert.assertThrows(IllegalArgumentException.class, () -> {evaluateRPN("20 2 + 3");});
+        Exception exception = Assert.assertThrows(IllegalArgumentException.class, () -> {
+            evaluateRPN("20 2 + 3");
+        });
         assertTrue(exception.getMessage().contains("Error: Too many values in the stack"));
     }
 
     @Test
     public void testPlusUnknownOperator() throws IllegalArgumentException {
-        Exception exception = Assert.assertThrows(IllegalArgumentException.class, () -> {evaluateRPN("20 2 )");});
+        Exception exception = Assert.assertThrows(IllegalArgumentException.class, () -> {
+            evaluateRPN("20 2 )");
+        });
         assertTrue(exception.getMessage().contains("Error: Unknown operator )"));
     }
 
@@ -68,7 +75,9 @@ public class ReversePolishNotationTest {
 
     @Test
     public void testDivFailWith0() throws IllegalArgumentException {
-        Exception exception = Assert.assertThrows(IllegalArgumentException.class, () -> {evaluateRPN("15 0 /");});
+        Exception exception = Assert.assertThrows(IllegalArgumentException.class, () -> {
+            evaluateRPN("15 0 /");
+        });
         assertTrue(exception.getMessage().contains("Error: Illegal operation"));
     }
 
