@@ -29,4 +29,16 @@ public class ReversePolishNotationTest {
         Assert.assertEquals(22.0, evaluateRPN("20 2 +"), 0.0);
     }
 
+    @Test
+    public void testPlusTooManyValues() throws IllegalArgumentException {
+        Exception exception = Assert.assertThrows(IllegalArgumentException.class, () -> {evaluateRPN("20 2 + 3");});
+        assertTrue(exception.getMessage().contains("Error: Too many values in the stack"));
+    }
+
+    @Test
+    public void testPlusUnknownOperator() throws IllegalArgumentException {
+        Exception exception = Assert.assertThrows(IllegalArgumentException.class, () -> {evaluateRPN("20 2 -");});
+        assertTrue(exception.getMessage().contains("Error: Unknown operator -"));
+    }
+
 }
