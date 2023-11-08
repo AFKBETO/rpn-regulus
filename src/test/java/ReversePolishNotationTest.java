@@ -37,8 +37,8 @@ public class ReversePolishNotationTest {
 
     @Test
     public void testPlusUnknownOperator() throws IllegalArgumentException {
-        Exception exception = Assert.assertThrows(IllegalArgumentException.class, () -> {evaluateRPN("20 2 -");});
-        assertTrue(exception.getMessage().contains("Error: Unknown operator -"));
+        Exception exception = Assert.assertThrows(IllegalArgumentException.class, () -> {evaluateRPN("20 2 )");});
+        assertTrue(exception.getMessage().contains("Error: Unknown operator )"));
     }
 
     @Test
