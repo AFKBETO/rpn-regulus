@@ -23,7 +23,7 @@ public class ReversePolishNotation {
             } else {
                 if (token.equals("sqrt")) {
                     if (stack.size() < 1) {
-                        throw new IllegalArgumentException("Error: expecting one argument for `sqrt`, but got less than one argument");
+                        throw new IllegalArgumentException("Error: expecting one argument for sqrt, but got less than one argument");
                     }
                     stack.push(Math.sqrt(stack.pop()));
                 } else {
@@ -35,9 +35,7 @@ public class ReversePolishNotation {
                             stack.push(stack.pop() + stack.pop());
                             break;
                         case "-":
-                            double first = stack.pop();
-                            double second = stack.pop();
-                            stack.push(second - first);
+                            stack.push(- stack.pop() + stack.pop());
                             break;
                         case "*":
                             stack.push(stack.pop() * stack.pop());

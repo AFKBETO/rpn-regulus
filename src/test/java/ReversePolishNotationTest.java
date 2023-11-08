@@ -10,7 +10,7 @@ public class ReversePolishNotationTest {
     @Test
     public void testSqrtFail() throws IllegalArgumentException {
         Exception exception = Assert.assertThrows(IllegalArgumentException.class, () -> {evaluateRPN("sqrt");});
-        assertTrue(exception.getMessage().contains("Error: expecting one argument for `sqrt`, but got less than one argument"));
+        assertTrue(exception.getMessage().contains("Error: expecting one argument for sqrt, but got less than one argument"));
     }
 
     @Test
