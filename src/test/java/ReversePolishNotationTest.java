@@ -19,7 +19,7 @@ public class ReversePolishNotationTest {
     }
 
     @Test
-    public void testPlusLessArg() throws IllegalArgumentException {
+    public void testLessArg() throws IllegalArgumentException {
         Exception exception = Assert.assertThrows(IllegalArgumentException.class, () -> {evaluateRPN("3 +");});
         assertTrue(exception.getMessage().contains("Error: expecting two arguments, but got less than two arguments"));
     }
@@ -40,5 +40,11 @@ public class ReversePolishNotationTest {
         Exception exception = Assert.assertThrows(IllegalArgumentException.class, () -> {evaluateRPN("20 2 -");});
         assertTrue(exception.getMessage().contains("Error: Unknown operator -"));
     }
+
+    @Test
+    public void testMinusOK() throws IllegalArgumentException {
+        Assert.assertEquals(18.0, evaluateRPN("20 2 -"), 0.0);
+    }
+
 
 }
